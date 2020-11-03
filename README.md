@@ -1,7 +1,7 @@
 ### workshop-spartacus
 Pré-prod d'un jeu basé sur le film Spartacus de stanley kubrick.
 
-#Workshop 1 Game : Spartacus
+# Workshop 1 Game : Spartacus
 https://i.pinimg.com/originals/53/66/fa/5366fa2afbe272874cb8118a418e1d76.jpg
 
 ..*Temps : du 23 octobre au 20 novembre
@@ -15,7 +15,7 @@ L’objectif est de pousser le plus loin possible vos réflexions afin de créer
 
 L’évaluation de ce workshop se fera dans un jury d’enseignants pendant lequel vous présenterez votre travail.
 
-##Eléments à rendre
+## Eléments à rendre
 Un document complet reprenant les étapes de production.
 Un game doc d’environs 15 pages incluant une justification de vos choix.
 Une bible graphique comprenant au moins 3 concepts art, 3 character Design, 3 planches de props, et 3 props modélisés et texturés, ainsi qu’une justification de vos choix et les travaux de recherche.
