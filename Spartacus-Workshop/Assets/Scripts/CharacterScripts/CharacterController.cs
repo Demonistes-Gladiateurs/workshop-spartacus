@@ -37,20 +37,20 @@ public class CharacterController : MonoBehaviour
         Vector3 playerMovement = new Vector3(hor, 0f, ver) * _speed * Time.deltaTime;
         transform.Translate(playerMovement, Space.Self);
 
-        if (Input.GetButtonDown("Jump") && _isOnTheGround == true) //Saut
+        /*if (Input.GetButtonDown("Jump") && _isOnTheGround == true) //Saut
         {
             _rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
             _isOnTheGround = false;
-        }
+        }*/
        
     }
 
-    private void OnCollisionEnter(Collision collision) // Si je rentre en collision avec le gameobject au nom de "Ground" alors je peux resauter
+   /* private void OnCollisionEnter(Collision collision) // Si je rentre en collision avec le gameobject au nom de "Ground" alors je peux resauter
     {
         if (collision.gameObject.tag == "Ground")
         {
             _isOnTheGround = true;
         }
-    }
+    }*/
 
 }
