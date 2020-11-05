@@ -13,8 +13,6 @@ public class Patrol : MonoBehaviour
 
     [SerializeField] Transform _moveSpots;
 
-
-
     private float _waitTime;
 
     void Start()

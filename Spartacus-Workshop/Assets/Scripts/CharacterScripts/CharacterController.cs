@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
 
     private Rigidbody _rb;
 
-    private bool _isOnTheGround = true;
+    //private bool _isOnTheGround = true;
 
     private void Start()
     {
