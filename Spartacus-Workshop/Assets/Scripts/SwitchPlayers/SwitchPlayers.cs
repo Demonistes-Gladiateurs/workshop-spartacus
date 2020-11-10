@@ -19,9 +19,12 @@ public class SwitchPlayers : MonoBehaviour
         cam1 = GameObject.Find("Camera1");
 
 
+
         cam3.SetActive(false);
 
         player2.GetComponent<CharacterController>().enabled = false;
+
+        player2.GetComponent<FollowCharacter>().enabled = true;
 
         cam1.tag = "MainCamera";
         cam3.tag = "Camera 2";
@@ -43,6 +46,9 @@ public class SwitchPlayers : MonoBehaviour
                 player1.GetComponent<CharacterController>().enabled = false;
 
                 player2.GetComponent<CharacterController>().enabled = true;
+
+                player1.GetComponent<FollowCharacter>().enabled = true;
+                player2.GetComponent<FollowCharacter>().enabled = false;
 
                 cam1.SetActive(false);
 
@@ -68,6 +74,9 @@ public class SwitchPlayers : MonoBehaviour
 
                 // player2.GetComponent<ThirdPersonCharacter>().enabled = false;
                 player2.GetComponent<CharacterController>().enabled = false;
+
+                player1.GetComponent<FollowCharacter>().enabled = false;
+                player2.GetComponent<FollowCharacter>().enabled = true; ;
 
                 cam1.SetActive(true);
                 cam3.tag = "Camera 2";
