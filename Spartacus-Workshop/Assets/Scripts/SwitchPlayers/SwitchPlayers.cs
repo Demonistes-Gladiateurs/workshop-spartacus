@@ -69,10 +69,9 @@ public class SwitchPlayers : MonoBehaviour
                 player1.GetComponent<CapsuleCollider>().enabled = true;
                 player2.GetComponent<CapsuleCollider>().enabled = false;
 
-                // player1.GetComponent<ThirdPersonCharacter>().enabled = true;
+
                 player1.GetComponent<CharacterController>().enabled = true;
 
-                // player2.GetComponent<ThirdPersonCharacter>().enabled = false;
                 player2.GetComponent<CharacterController>().enabled = false;
 
                 player1.GetComponent<FollowCharacter>().enabled = false;
