@@ -452,7 +452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -218, y: 53}
+  m_AnchoredPosition: {x: 199, y: -105}
   m_SizeDelta: {x: 325, y: 56.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &139373004
@@ -701,7 +701,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1343,10 +1343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b546cdffb7510e347bda4e5a10e5e3a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 1484257260}
-  player2: {fileID: 1655710927}
-  cam3: {fileID: 730423881}
-  cam1: {fileID: 1709896671}
+  _player1: {fileID: 0}
+  _player2: {fileID: 0}
+  _cam3: {fileID: 0}
+  _cam1: {fileID: 0}
 --- !u!114 &491464416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2061,11 +2061,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &730423881 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2924117963235576632, guid: 0512c1ffbc5c2ba4ca2b620678e8767d, type: 3}
-  m_PrefabInstance: {fileID: 1655710926}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &731859026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3814,9 +3809,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1655710927}
   _targetDistance: 0
-  _allowedDistance: 5
+  _allowedDistance: 2
   _ai: {fileID: 1484257260}
-  _followSpeed: 0
+  _followSpeed: 1
 --- !u!1 &1546440186
 GameObject:
   m_ObjectHideFlags: 0
@@ -4308,9 +4303,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1484257260}
   _targetDistance: 0
-  _allowedDistance: 5
+  _allowedDistance: 2
   _ai: {fileID: 1655710927}
-  _followSpeed: 0
+  _followSpeed: 1
 --- !u!1 &1666277697
 GameObject:
   m_ObjectHideFlags: 0
@@ -4477,11 +4472,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703131649}
   m_CullTransparentMesh: 0
---- !u!1 &1709896671 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2924117963235576632, guid: c080f38957de77845847332b37d7f1bf, type: 3}
-  m_PrefabInstance: {fileID: 2924117962272532041}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1724114729
 GameObject:
   m_ObjectHideFlags: 0
@@ -6276,6 +6266,10 @@ PrefabInstance:
     - target: {fileID: 7952274935558729115, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952274935558729115, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7952274935558729118, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb, type: 3}
       propertyPath: _moveSpots
