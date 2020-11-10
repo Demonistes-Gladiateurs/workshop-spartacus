@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int _baseHealth = 100;
-    [SerializeField] private int _bonusHealth = 0;
+    [SerializeField] private float _baseHealth = 100;
+    [SerializeField] private float _bonusHealth = 0;
 
-    [SerializeField] private int _armor = 100;
+    [SerializeField] private float _armor = 100;
 
     [SerializeField] private HealthBarScript _healthBar = null;
     [SerializeField] private Slider _slider = null;
 
-    private int _currentHealth = 100;
+    private float _currentHealth = 100;
 
     private void Start()
     {
-        _currentHealth = _baseHealth;
+        _currentHealth = _baseHealth + _bonusHealth;
         _healthBar.SetMaxHealth(_currentHealth);
     }
 
@@ -25,14 +25,16 @@ public class Health : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) //Test health bar
         {
-            TakeDamage(20);
-            Debug.Log("-20");
+            TakeDamage(30);
         }
     }
 
     private void TakeDamage(int damage)
     {
-        _currentHealth = _currentHealth - damage;
+        float damageMultiplicator = 100 / (100 + _armor);
+
+        _currentHealth = _currentHealth - (damage * damageMultiplicator);
+        Debug.Log(_currentHealth);
         _healthBar.SetHealth(_currentHealth);
     }
 }
