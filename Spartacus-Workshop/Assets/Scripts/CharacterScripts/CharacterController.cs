@@ -11,6 +11,17 @@ public class CharacterController : MonoBehaviour
 
     //private bool _isOnTheGround = true;
 
+        public float SpeedGS
+    {
+        get
+        {
+            return _speed;
+        }
+        set
+        {
+            _speed = value;
+        }
+    }
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
