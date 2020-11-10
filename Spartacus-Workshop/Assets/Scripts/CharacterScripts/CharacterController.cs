@@ -6,10 +6,6 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _speedBoost;
-    [SerializeField] private int _maxHealth = 100;
-    [SerializeField] private int _currentHealth = 100;
-
-    [SerializeField] private HealthBarScript _healthBar;
 
     private Rigidbody _rb;
 
@@ -18,9 +14,6 @@ public class CharacterController : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-
-        _currentHealth = _maxHealth;
-        _healthBar.SetMaxHealth(_maxHealth);
     }
 
     void Update()
@@ -34,13 +27,6 @@ public class CharacterController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             _speed -= _speedBoost;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space)) //Test health bar
-        {
-            TakeDamage(20);
-            Debug.Log("-20");
-            _healthBar.SetHealth(_currentHealth);
         }
     }
 
@@ -66,9 +52,4 @@ public class CharacterController : MonoBehaviour
             _isOnTheGround = true;
         }
     }*/
-
-    void TakeDamage(int damage)
-    {
-        _currentHealth -= damage;
-    }
 }
