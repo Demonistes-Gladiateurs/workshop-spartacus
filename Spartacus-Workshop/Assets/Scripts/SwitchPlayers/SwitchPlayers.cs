@@ -47,7 +47,7 @@ public class SwitchPlayers : MonoBehaviour
 
                 player2.GetComponent<CharacterController>().enabled = true;
 
-                player1.GetComponent<FollowCharacter>().enabled = true;
+                player1.GetComponent<FollowCharacter>().enabled = true; //Play FollowCharacterScript
                 player2.GetComponent<FollowCharacter>().enabled = false;
 
                 cam1.SetActive(false);
