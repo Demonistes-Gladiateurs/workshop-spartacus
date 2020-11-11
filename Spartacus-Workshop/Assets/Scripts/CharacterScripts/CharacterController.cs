@@ -51,13 +51,17 @@ public class CharacterController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TakeDamage(10);
+            TakeDamage(10, _weaponBoostName);
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, string weaponName)
     {
-        damage -= _armor.GetValue();
+        if(weaponName != "Spear")
+        {
+            damage -= _armor.GetValue();
+        }
+        
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         int _crit = Random.Range(1, 11);
