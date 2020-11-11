@@ -4567,6 +4567,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2924117961316605234, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
+        type: 3}
+      propertyPath: _weaponBoostName
+      value: Burger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924117961316605234, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
+        type: 3}
+      propertyPath: _damage._baseValue
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2924117961316605244, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
         type: 3}
       propertyPath: m_Name
@@ -6554,6 +6564,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _armor._baseValue
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924117961316605234, guid: c080f38957de77845847332b37d7f1bf,
+        type: 3}
+      propertyPath: _weaponBoostName
+      value: Basic Gun
       objectReference: {fileID: 0}
     - target: {fileID: 2924117961316605244, guid: c080f38957de77845847332b37d7f1bf,
         type: 3}

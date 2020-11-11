@@ -35,7 +35,7 @@ public class ItemPickUp : MonoBehaviour
         Debug.Log("damage " + damageModifier);
         Debug.Log("armor " + armorModifier);
         Debug.Log("heal " + lifeModifier);
-        _characterController[i].SetDamageValue(damageModifier);
+        _characterController[i].SetDamageValue(damageModifier, item.name);
         _characterController[i].SetArmorValue(armorModifier);
         _characterController[i].SetLifeValue(lifeModifier);
         Destroy(gameObject);

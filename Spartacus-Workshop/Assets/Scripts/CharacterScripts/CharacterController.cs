@@ -6,6 +6,7 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _speedBoost;
+    [SerializeField] private string _weaponBoostName;
 
     [SerializeField] private int _maxHealth = 500;
     public int _currentHealth { get; private set; }
@@ -59,6 +60,13 @@ public class CharacterController : MonoBehaviour
         damage -= _armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
+        int _crit = Random.Range(1, 11);
+
+        if(_crit == 10)
+        {
+            damage *= 2;
+        }
+
         _currentHealth -= damage;
         Debug.Log(transform.name + " takes " + damage + " damages.");
 
@@ -91,10 +99,14 @@ public class CharacterController : MonoBehaviour
          }
      }*/
 
-    public void SetDamageValue(int damageModifier)
+    public void SetDamageValue(int damageModifier, string itemName)
     {
         _damage.RemoveModifier(damageModifier);
         _damage.AddModifier(damageModifier);
+        if(itemName == _weaponBoostName)
+        {
+            _damage.AddModifier(damageModifier);
+        }
         Debug.Log(_damage.GetValue());
     }
 
