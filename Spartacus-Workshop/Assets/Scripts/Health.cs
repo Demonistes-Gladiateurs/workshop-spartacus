@@ -27,6 +27,11 @@ public class Health : MonoBehaviour
         {
             TakeDamage(30);
         }
+
+        if (_currentHealth <= 0) //BoucleHealth
+        {
+            _currentHealth = _baseHealth;
+        }
     }
 
     private void TakeDamage(int damage)
