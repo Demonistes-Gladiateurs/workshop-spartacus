@@ -15,6 +15,18 @@ public class Health : MonoBehaviour
 
     private float _currentHealth = 100;
 
+    public float CurrentHealthGS
+    {
+        get
+        {
+            return _currentHealth;
+        }
+        set
+        {
+            _currentHealth = value;
+        }
+    }
+
     private void Start()
     {
         _currentHealth = _baseHealth + _bonusHealth;
