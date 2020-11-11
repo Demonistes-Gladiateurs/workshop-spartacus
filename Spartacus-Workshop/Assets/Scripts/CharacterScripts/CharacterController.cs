@@ -6,7 +6,7 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _speedBoost;
-    [SerializeField] private string _weaponBoostName;
+    [SerializeField] public string _weaponBoostName;
 
     [SerializeField] private int _maxHealth = 500;
     public int _currentHealth { get; private set; }

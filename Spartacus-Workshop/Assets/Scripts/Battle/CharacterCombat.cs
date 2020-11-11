@@ -14,6 +14,6 @@ public class CharacterCombat : MonoBehaviour
 
     private void Attack (CharacterController targetStats)
     {
-        targetStats.TakeDamage(_myStats._damage.GetValue());
+        targetStats.TakeDamage(_myStats._damage.GetValue(), _myStats._weaponBoostName);
     }
 }
