@@ -15,4 +15,7 @@ MonoBehaviour:
   _itemName: Burger
   _itemDescription: A good burger from Burger King
   _icon: {fileID: 21300000, guid: 81376bb8d2ba89241bf49d82004fdfc4, type: 3}
+  _damageModifier: 7
+  _armorModifier: 1
+  _lifeModifier: 20
   _type: 1
