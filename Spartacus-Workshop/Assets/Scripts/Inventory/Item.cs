@@ -14,9 +14,13 @@ public class Item : ScriptableObject
 
     //[SerializeField] private int _price = 0;
 
-    [SerializeField] private enum Type { Default, Consumable, Weapon, Ammunition}
+    [SerializeField] private enum Type { Default, Consumable, Weapon, Ammunition }
+    [SerializeField] private enum Effect { Default, Sharp, Blunt, Piercing }
+    [SerializeField] private enum Element { Default, Fire, Ice, Thunder }
 
     [SerializeField] private Type _type = Type.Default;
+    [SerializeField] private Effect _effect = Effect.Default;
+    [SerializeField] private Element _element = Element.Default;
 
     public Sprite IconGS
     {
