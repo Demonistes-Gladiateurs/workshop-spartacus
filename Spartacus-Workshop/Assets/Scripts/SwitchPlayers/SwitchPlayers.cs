@@ -10,6 +10,12 @@ public class SwitchPlayers : MonoBehaviour
     [SerializeField] private GameObject _cam3;
     [SerializeField] private GameObject _cam1;
 
+    [SerializeField] private GameObject _healthBarPlayer1;
+    [SerializeField] private GameObject _healthBarPlayer2;
+
+    [SerializeField] private GameObject _miniMapPlayer1;
+    [SerializeField] private GameObject _miniMapPlayer2;
+
     void Start()
     {
         _player2 = GameObject.Find("Player2");
@@ -26,6 +32,12 @@ public class SwitchPlayers : MonoBehaviour
 
         _cam1.tag = "MainCamera";
         _cam3.tag = "Camera 2";
+
+        _healthBarPlayer1.SetActive(true);
+        _healthBarPlayer2.SetActive(false);
+
+        _miniMapPlayer1.SetActive(true);
+        _miniMapPlayer2.SetActive(false);
     }
 
     void Update()
@@ -47,6 +59,12 @@ public class SwitchPlayers : MonoBehaviour
 
                 _player1.GetComponent<FollowCharacter>().enabled = true; 
                 _player2.GetComponent<FollowCharacter>().enabled = false;
+
+                _healthBarPlayer2.SetActive(true);
+                _healthBarPlayer1.SetActive(false);
+
+                _miniMapPlayer2.SetActive(true);
+                _miniMapPlayer1.SetActive(false);
 
                 _cam1.SetActive(false);
 
@@ -74,6 +92,12 @@ public class SwitchPlayers : MonoBehaviour
 
                 _player1.GetComponent<FollowCharacter>().enabled = false;
                 _player2.GetComponent<FollowCharacter>().enabled = true; ;
+
+                _healthBarPlayer1.SetActive(true);
+                _healthBarPlayer2.SetActive(false);
+
+                _miniMapPlayer1.SetActive(true);
+                _miniMapPlayer2.SetActive(false);
 
                 _cam1.SetActive(true);
                 _cam3.tag = "Camera 2";
