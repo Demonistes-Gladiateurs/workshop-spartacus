@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    [SerializeField] Transform _playerCamera;
     [SerializeField] private float _speed;
     [SerializeField] private float _speedBoost;
     [SerializeField] public string _weaponBoostName;
@@ -48,16 +49,19 @@ public class CharacterController : MonoBehaviour
         {
             _speed -= _speedBoost;
         }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(10, _weaponBoostName);
-        }
     }
 
     public void TakeDamage(int damage, string weaponName)
     {
-        if(weaponName != "Spear")
+        if(_playerCamera.name == "Camera1" && _playerCamera.tag == "MainCamera")
+        {
+            _currentHealth = GetComponent<HealthPlayer1>().CurrentHealthGS;
+        } else if (_playerCamera.name == "Camera2" && _playerCamera.tag == "MainCamera")
+        {
+            _currentHealth = GetComponent<HealthPlayer2>().CurrentHealthGS;
+        }
+
+        if (weaponName != "Spear")
         {
             damage -= _armor.GetValue();
         }
@@ -71,8 +75,18 @@ public class CharacterController : MonoBehaviour
             damage *= 2;
         }
 
-        _currentHealth -= damage;
-        Debug.Log(transform.name + " takes " + damage + " damages.");
+        int result = _currentHealth -= damage;
+
+        if (_playerCamera.name == "Camera1" && _playerCamera.tag == "MainCamera")
+        {
+            GetComponent<HealthPlayer1>().CurrentHealthGS = result;
+            Debug.Log(transform.name + " takes " + damage + " damages.");
+        }
+        else if (_playerCamera.name == "Camera2" && _playerCamera.tag == "MainCamera")
+        {
+            GetComponent<HealthPlayer2>().CurrentHealthGS = result;
+            Debug.Log(transform.name + " takes " + damage + " damages.");
+        }
 
         if (_currentHealth <= 0)
         {
@@ -86,22 +100,8 @@ public class CharacterController : MonoBehaviour
         float ver = Input.GetAxis("Vertical");
         Vector3 playerMovement = new Vector3(hor, 0f, ver) * _speed * Time.deltaTime;
         transform.Translate(playerMovement, Space.Self);
-
-        /*if (Input.GetButtonDown("Jump") && _isOnTheGround == true) //Saut
-        {
-            _rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
-            _isOnTheGround = false;
-        }*/
        
     }
-
-    /* private void OnCollisionEnter(Collision collision) // Si je rentre en collision avec le gameobject au nom de "Ground" alors je peux resauter
-     {
-         if (collision.gameObject.tag == "Ground")
-         {
-             _isOnTheGround = true;
-         }
-     }*/
 
     public void SetDamageValue(int damageModifier, string itemName)
     {
@@ -134,5 +134,10 @@ public class CharacterController : MonoBehaviour
         Debug.Log(_heal.GetValue());
         Debug.Log(_currentHealth);
         _heal.RemoveModifier(lifeModifier);
+    }
+
+    public int GetMaxHealth()
+    {
+        return _maxHealth;
     }
 }

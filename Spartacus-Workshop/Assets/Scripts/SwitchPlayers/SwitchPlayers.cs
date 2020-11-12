@@ -7,7 +7,7 @@ public class SwitchPlayers : MonoBehaviour
     [SerializeField] private GameObject _player1;
     [SerializeField] private GameObject _player2;
 
-    [SerializeField] private GameObject _cam3;
+    [SerializeField] private GameObject _cam2;
     [SerializeField] private GameObject _cam1;
 
     [SerializeField] private GameObject _healthBarPlayer1;
@@ -21,17 +21,17 @@ public class SwitchPlayers : MonoBehaviour
         _player2 = GameObject.Find("Player2");
         _player1 = GameObject.Find("Player1");
 
-        _cam3 = GameObject.Find("Camera3");
+        _cam2 = GameObject.Find("Camera2");
         _cam1 = GameObject.Find("Camera1");
 
-        _cam3.SetActive(false);
+        _cam2.SetActive(false);
 
         _player2.GetComponent<CharacterController>().enabled = false;
 
         _player2.GetComponent<FollowCharacter>().enabled = true;
 
         _cam1.tag = "MainCamera";
-        _cam3.tag = "Camera 2";
+        _cam2.tag = "Camera 2";
 
         _healthBarPlayer1.SetActive(true);
         _healthBarPlayer2.SetActive(false);
@@ -68,10 +68,10 @@ public class SwitchPlayers : MonoBehaviour
 
                 _cam1.SetActive(false);
 
-                _cam3.SetActive(true);
+                _cam2.SetActive(true);
 
                 _cam1.tag = "Camera 2";
-                _cam3.tag = "MainCamera";
+                _cam2.tag = "MainCamera";
             }
         }
 
@@ -100,14 +100,38 @@ public class SwitchPlayers : MonoBehaviour
                 _miniMapPlayer2.SetActive(false);
 
                 _cam1.SetActive(true);
-                _cam3.tag = "Camera 2";
+                _cam2.tag = "Camera 2";
                 
                 _cam1 = GameObject.Find("Camera1");
                 _cam1.tag = "MainCamera";
 
-                _cam3.SetActive(false);
+                _cam2.SetActive(false);
 
             }
+        }
+    }
+
+    public string GetCamera1Name
+    {
+        get
+        {
+            return _cam1.tag;
+        }
+        set
+        {
+            _cam1.tag = value;
+        }
+    }
+
+    public string GetCamera2Name
+    {
+        get
+        {
+            return _cam2.tag;
+        }
+        set
+        {
+            _cam2.tag = value;
         }
     }
 }

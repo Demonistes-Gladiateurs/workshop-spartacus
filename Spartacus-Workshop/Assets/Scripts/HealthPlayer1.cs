@@ -5,17 +5,14 @@ using UnityEngine.UI;
 
 public class HealthPlayer1 : MonoBehaviour
 {
-    [SerializeField] private float _baseHealth = 100;
-    [SerializeField] private float _bonusHealth = 0;
-
-    [SerializeField] private float _armor = 100;
-
+    [SerializeField] private CharacterController _character1;
     [SerializeField] private HealthBarScript _healthBar = null;
     [SerializeField] private Slider _slider = null;
 
-    private float _currentHealth = 100;
+    private int _maxHealth;
+    private int _currentHealth;
 
-    public float CurrentHealthGS
+    public int CurrentHealthGS
     {
         get
         {
@@ -29,29 +26,22 @@ public class HealthPlayer1 : MonoBehaviour
 
     private void Start()
     {
-        _currentHealth = _baseHealth + _bonusHealth;
-        _healthBar.SetMaxHealth(_currentHealth);
+        _maxHealth = _character1.GetMaxHealth();
+        _currentHealth = _maxHealth;
+        _healthBar.SetMaxHealth(_maxHealth);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) //Test health bar
         {
-            TakeDamage(30);
+            _character1.TakeDamage(_character1._damage.GetValue(), _character1._weaponBoostName);
+            _healthBar.SetHealth(_currentHealth);
         }
 
         if (_currentHealth <= 0) //BoucleHealth
         {
-            _currentHealth = _baseHealth;
+            _currentHealth = _maxHealth;
         }
-    }
-
-    private void TakeDamage(int damage)
-    {
-        float damageMultiplicator = 100 / (100 + _armor);
-
-        _currentHealth = _currentHealth - (damage * damageMultiplicator);
-        Debug.Log(_currentHealth);
-        _healthBar.SetHealth(_currentHealth);
     }
 }

@@ -2004,7 +2004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player1: {fileID: 1484257260}
   _player2: {fileID: 1655710927}
-  _cam3: {fileID: 1988306125}
+  _cam2: {fileID: 0}
   _cam1: {fileID: 1276868375}
   _healthBarPlayer1: {fileID: 139373002}
   _healthBarPlayer2: {fileID: 94589968}
@@ -3201,7 +3201,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889710832}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &889710835
 Camera:
   m_ObjectHideFlags: 0
@@ -4206,6 +4206,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2924117962272532041}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1276868376 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2924117963235576637, guid: c080f38957de77845847332b37d7f1bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 2924117962272532041}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1296971567
 GameObject:
   m_ObjectHideFlags: 0
@@ -5061,11 +5067,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461f890da4326d14098945e6a34cfdba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseHealth: 100
-  _bonusHealth: 0
-  _armor: 100
+  _character1: {fileID: 1484257263}
   _healthBar: {fileID: 139373005}
   _slider: {fileID: 1205948370}
+--- !u!114 &1484257263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2924117961316605234, guid: c080f38957de77845847332b37d7f1bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 2924117962272532041}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484257260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ccd5406097d994e95506a7a69fa272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1484257267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2924117961316605232, guid: c080f38957de77845847332b37d7f1bf,
@@ -5536,6 +5552,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2924117961316605234, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
+        type: 3}
+      propertyPath: _damage._baseValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924117961316605234, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
+        type: 3}
+      propertyPath: _numberPlayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924117961316605234, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1655710934}
+    - target: {fileID: 2924117961316605234, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
+        type: 3}
+      propertyPath: _playerCamera
+      value: 
+      objectReference: {fileID: 1988306126}
+    - target: {fileID: 2924117961316605234, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
+        type: 3}
+      propertyPath: _armor._baseValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2924117961316605244, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
         type: 3}
       propertyPath: m_Name
@@ -5549,7 +5590,12 @@ PrefabInstance:
     - target: {fileID: 2924117963235576632, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
         type: 3}
       propertyPath: m_Name
-      value: Camera3
+      value: Camera2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924117963235576635, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0512c1ffbc5c2ba4ca2b620678e8767d, type: 3}
@@ -5588,12 +5634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4d80376be9ac949981a9f54bb08d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseHealth: 100
-  _bonusHealth: 0
-  _armor: 100
-  _healthBar: {fileID: 0}
-  _slider: {fileID: 94589971}
-  _currentHealth: 100
 --- !u!114 &1655710930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5606,11 +5646,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776fc229d13f080468c2c6219a586edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseHealth: 100
-  _bonusHealth: 0
-  _armor: 100
+  _character2: {fileID: 1655710931}
   _healthBar: {fileID: 94589970}
   _slider: {fileID: 94589971}
+--- !u!114 &1655710931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2924117961316605234, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1655710926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655710927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ccd5406097d994e95506a7a69fa272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1655710934 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2924117961316605232, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
@@ -6684,7 +6734,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845537113}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1845537116
 Camera:
   m_ObjectHideFlags: 0
@@ -7530,9 +7580,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971639073}
   m_CullTransparentMesh: 0
---- !u!1 &1988306125 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2924117963235576632, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
+--- !u!4 &1988306126 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2924117963235576637, guid: 0512c1ffbc5c2ba4ca2b620678e8767d,
     type: 3}
   m_PrefabInstance: {fileID: 1655710926}
   m_PrefabAsset: {fileID: 0}
@@ -8100,6 +8150,36 @@ PrefabInstance:
       propertyPath: _heal._baseValue
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2924117961316605234, guid: c080f38957de77845847332b37d7f1bf,
+        type: 3}
+      propertyPath: _weaponBoostName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924117961316605234, guid: c080f38957de77845847332b37d7f1bf,
+        type: 3}
+      propertyPath: _damage._baseValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924117961316605234, guid: c080f38957de77845847332b37d7f1bf,
+        type: 3}
+      propertyPath: _armor._baseValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924117961316605234, guid: c080f38957de77845847332b37d7f1bf,
+        type: 3}
+      propertyPath: _numberPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924117961316605234, guid: c080f38957de77845847332b37d7f1bf,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1484257267}
+    - target: {fileID: 2924117961316605234, guid: c080f38957de77845847332b37d7f1bf,
+        type: 3}
+      propertyPath: _playerCamera
+      value: 
+      objectReference: {fileID: 1276868376}
     - target: {fileID: 2924117961316605244, guid: c080f38957de77845847332b37d7f1bf,
         type: 3}
       propertyPath: m_Name
@@ -8125,7 +8205,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2924117963235576635, guid: c080f38957de77845847332b37d7f1bf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2924117963235576635, guid: c080f38957de77845847332b37d7f1bf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c080f38957de77845847332b37d7f1bf, type: 3}
 --- !u!1001 &7952274935901281225
 PrefabInstance:
