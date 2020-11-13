@@ -18,6 +18,7 @@ public class CharacterController : MonoBehaviour
 
     private Rigidbody _rb;
 
+    private Animator _animator;
 
     //private bool _isOnTheGround = true;
 
@@ -37,8 +38,8 @@ public class CharacterController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _currentHealth = _maxHealth;
 
-
-
+        _animator = GetComponent<Animator>();
+        _animator.Play("Idle");
     }
 
     void Update()
@@ -48,12 +49,12 @@ public class CharacterController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.LeftShift)) //Sprint
         {
             _speed += _speedBoost;
-
+            _animator.Play("Running");
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             _speed -= _speedBoost;
-  
+            _animator.Play("Walking");
         }
     }
 
