@@ -47,11 +47,11 @@ public class CharacterController : MonoBehaviour
         _currentHealth = _enemyHealth.GetCurrentHealth();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         PlayerMovement(); //Joue la fonction PlayerMovement
 
-        if(Input.GetKeyDown(KeyCode.LeftShift)) //Sprint
+        if (Input.GetKeyDown(KeyCode.LeftShift)) //Sprint
         {
             _speed += _speedBoost;
         }
@@ -59,6 +59,11 @@ public class CharacterController : MonoBehaviour
         {
             _speed -= _speedBoost;
         }
+    }
+
+    void Update()
+    {
+        
     }
 
     public void TakeDamage(int damage, string weaponName)
