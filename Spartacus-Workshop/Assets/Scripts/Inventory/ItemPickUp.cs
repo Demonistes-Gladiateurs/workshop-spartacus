@@ -7,38 +7,51 @@ public class ItemPickUp : MonoBehaviour
     [SerializeField] private float _radius = 3f;
     [SerializeField] private CharacterController[] _characterController;
 
+    private int player = 0;
     private int i = 0;
+    private int lim = 0;
 
-    public Item item;
+    public Item[] item;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        
+        lim = item.Length - 1;        
         if (other.gameObject.tag == "Player")
         {
             if (other.gameObject.name == "Player1")
             {
-                i = 0;
+                player = 0;
             } else if (other.gameObject.name == "Player2"){
-                i = 1;
+                player = 1;
             }
-            PickUp();
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                PickUp();
+                if (i < lim)
+                {
+                    i++;
+                }
+                else i=0;
+            }
         }
     }
 
     void PickUp()
     {
-        int damageModifier = item.GetDamageValue(item);
-        int armorModifier = item.GetArmorValue(item);
-        int lifeModifier = item.GetLifeValue(item);
-        Debug.Log("Picking up " + item.name);
-        Debug.Log("damage " + damageModifier);
-        Debug.Log("armor " + armorModifier);
-        Debug.Log("heal " + lifeModifier);
-        _characterController[i].SetDamageValue(damageModifier, item.name);
+        Debug.Log("pickup " + i);
+        int damageModifier = item[i].GetDamageValue(item[i]);
+        int armorModifier = item[i].GetArmorValue(item[i]);
+        int lifeModifier = item[i].GetLifeValue(item[i]);
+        Debug.Log("Picking up " + item[i].name + ", gdt = " + damageModifier);
+        //Debug.Log("damage " + damageModifier);
+        //Debug.Log("armor " + armorModifier);
+        //Debug.Log("heal " + lifeModifier);
+        Debug.Log("pickup PREBUG " + i);
+        _characterController[i].SetDamageValue(damageModifier, item[i].name);
         _characterController[i].SetArmorValue(armorModifier);
         _characterController[i].SetLifeValue(lifeModifier);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
 }

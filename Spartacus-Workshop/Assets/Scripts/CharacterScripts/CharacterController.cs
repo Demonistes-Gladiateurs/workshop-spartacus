@@ -11,6 +11,9 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] private int _maxHealth = 500;
     public int _currentHealth { get; private set; }
+    private int _baseDamageValue;
+    private int _baseArmorValue;
+    private int _baseHealValue;
 
     public Stat _damage;
     public Stat _armor;
@@ -35,6 +38,9 @@ public class CharacterController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _currentHealth = _maxHealth;
+        _baseDamageValue = _damage.GetValue();
+        _baseArmorValue = _armor.GetValue();
+        _baseHealValue = _heal.GetValue();
     }
 
     void Update()
@@ -88,10 +94,10 @@ public class CharacterController : MonoBehaviour
             Debug.Log(transform.name + " takes " + damage + " damages.");
         }
 
-        if (_currentHealth <= 0)
+        /*if (_currentHealth <= 0)
         {
             Debug.Log("DEAD");
-        }
+        }*/
     }
 
     void PlayerMovement()
@@ -105,24 +111,26 @@ public class CharacterController : MonoBehaviour
 
     public void SetDamageValue(int damageModifier, string itemName)
     {
-        _damage.RemoveModifier(damageModifier);
+        int valueToRemove = _damage.GetValue() - _baseDamageValue;
+        _damage.RemoveModifier(valueToRemove);
         _damage.AddModifier(damageModifier);
         if(itemName == _weaponBoostName)
         {
             _damage.AddModifier(damageModifier);
         }
-        Debug.Log(_damage.GetValue());
     }
 
     public void SetArmorValue(int armorModifier)
     {
+        int valueToRemove = _armor.GetValue() - _baseArmorValue;
         _armor.RemoveModifier(armorModifier);
         _armor.AddModifier(armorModifier);
-        Debug.Log(_armor.GetValue());
+        //Debug.Log(_armor.GetValue());
     }
 
     public void SetLifeValue(int lifeModifier)
     {
+        int valueToRemove = _heal.GetValue() - _baseHealValue;
         _heal.AddModifier(lifeModifier);
         _currentHealth += _heal.GetValue();
 
@@ -131,8 +139,8 @@ public class CharacterController : MonoBehaviour
             _currentHealth = _maxHealth;
         }
 
-        Debug.Log(_heal.GetValue());
-        Debug.Log(_currentHealth);
+        //Debug.Log(_heal.GetValue());
+        //Debug.Log(_currentHealth);
         _heal.RemoveModifier(lifeModifier);
     }
 
