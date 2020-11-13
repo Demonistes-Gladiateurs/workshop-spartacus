@@ -12,13 +12,10 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private EnemyController _enemy;
 
     [SerializeField] private int _maxHealth = 500;
-    public int _currentHealthEnemy { get; private set; }
-    public int _currentHealth;
+    public int _currentHealth { get; private set; }
     private int _baseDamageValue;
     private int _baseArmorValue;
     private int _baseHealValue;
-    private bool _actifPlayer = false;
-    private bool _canHit = false;
 
     public Stat _damage;
     public Stat _armor;
@@ -42,19 +39,19 @@ public class CharacterController : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _currentHealth = _maxHealth;
+        //_currentHealth = _maxHealth;
         _baseDamageValue = _damage.GetValue();
         _baseArmorValue = _armor.GetValue();
         _baseHealValue = _heal.GetValue();
 
-        _currentHealthEnemy = _enemyHealth.GetCurrentHealth();
+        _currentHealth = _enemyHealth.GetCurrentHealth();
     }
 
     private void FixedUpdate()
     {
         PlayerMovement(); //Joue la fonction PlayerMovement
 
-        if(Input.GetKeyDown(KeyCode.LeftShift)) //Sprint
+        if (Input.GetKeyDown(KeyCode.LeftShift)) //Sprint
         {
             _speed += _speedBoost;
         }
@@ -64,49 +61,57 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    void Update()
     {
-        _canHit = true;
+        
     }
 
     public void TakeDamage(int damage, string weaponName)
     {
-        if (_canHit)
+        /*if(_playerCamera.name == "Camera1" && _playerCamera.tag == "MainCamera")
         {
-            if (_playerCamera.name == "Camera1" && _playerCamera.tag == "MainCamera")
-            {
-                _actifPlayer = true;
-            }
-            else if (_playerCamera.name == "Camera2" && _playerCamera.tag == "MainCamera")
-            {
-                _actifPlayer = true;
-            }
+            _currentHealth = GetComponent<HealthPlayer1>().CurrentHealthGS;
+        } else if (_playerCamera.name == "Camera2" && _playerCamera.tag == "MainCamera")
+        {
+            _currentHealth = GetComponent<HealthPlayer2>().CurrentHealthGS;
+        }*/
 
-            if (_actifPlayer)
-            {
-                _currentHealthEnemy = _enemyHealth.GetCurrentHealth();
+        _currentHealth = _enemyHealth.GetCurrentHealth();
 
-                if (weaponName != "Spear")
-                {
-                    damage -= _enemy.GetArmor();
-                }
-
-                damage = Mathf.Clamp(damage, 0, int.MaxValue);
-
-                int _crit = Random.Range(1, 11);
-
-                if (_crit == 10)
-                {
-                    damage *= 2;
-                }
-
-                int result = _currentHealthEnemy -= damage;
-
-                _enemyHealth.SetCurrentHealth(result);
-            }
-            _actifPlayer = false;
+        if (weaponName != "Spear")
+        {
+            //damage -= _armor.GetValue();
+            damage -= _enemy.GetArmor();
         }
-        _canHit = false;
+        
+        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+
+        int _crit = Random.Range(1, 11);
+
+        if(_crit == 10)
+        {
+            damage *= 2;
+        }
+
+        int result = _currentHealth -= damage;
+
+        _enemyHealth.SetCurrentHealth(result);
+
+        /*if (_playerCamera.name == "Camera1" && _playerCamera.tag == "MainCamera")
+        {
+            GetComponent<HealthPlayer1>().CurrentHealthGS = result;
+            Debug.Log(transform.name + " takes " + damage + " damages.");
+        }
+        else if (_playerCamera.name == "Camera2" && _playerCamera.tag == "MainCamera")
+        {
+            GetComponent<HealthPlayer2>().CurrentHealthGS = result;
+            Debug.Log(transform.name + " takes " + damage + " damages.");
+        }
+
+        /*if (_currentHealth <= 0)
+        {
+            Debug.Log("DEAD");
+        }*/
     }
 
     void PlayerMovement()
@@ -141,30 +146,20 @@ public class CharacterController : MonoBehaviour
     {
         int valueToRemove = _heal.GetValue() - _baseHealValue;
         _heal.AddModifier(lifeModifier);
-        _currentHealthEnemy += _heal.GetValue();
+        _currentHealth += _heal.GetValue();
 
-        if (_currentHealthEnemy >= _maxHealth)
+        if (_currentHealth >= _maxHealth)
         {
-            _currentHealthEnemy = _maxHealth;
+            _currentHealth = _maxHealth;
         }
 
         //Debug.Log(_heal.GetValue());
-        //Debug.Log(_currentHealthEnemy);
+        //Debug.Log(_currentHealth);
         _heal.RemoveModifier(lifeModifier);
     }
 
     public int GetMaxHealth()
     {
         return _maxHealth;
-    }
-
-    public int GetHealth()
-    {
-        return _currentHealth;
-    }
-
-    public int GetArmor()
-    {
-        return _baseArmorValue;
     }
 }
