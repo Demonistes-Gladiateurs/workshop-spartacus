@@ -41,11 +41,11 @@ public class CharacterController : MonoBehaviour
 
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         PlayerMovement(); //Joue la fonction PlayerMovement
 
-        if(Input.GetKeyDown(KeyCode.LeftShift)) //Sprint
+        if (Input.GetKeyDown(KeyCode.LeftShift)) //Sprint
         {
             _speed += _speedBoost;
 
@@ -53,8 +53,12 @@ public class CharacterController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             _speed -= _speedBoost;
-  
+
         }
+    }
+    void Update()
+    {
+       
     }
 
     public void TakeDamage(int damage, string weaponName)
@@ -102,11 +106,17 @@ public class CharacterController : MonoBehaviour
 
     void PlayerMovement()
     {
-        float hor = Input.GetAxis("Horizontal"); //Déplacements classiques
+       /* float hAxis = Input.GetAxis("Horizontal");
+        float vAxis = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(hAxis, 0f, vAxis);
+        _rb.position += movement * _speed * Time.deltaTime;*/
+
+        float hor = Input.GetAxis("Horizontal"); 
         float ver = Input.GetAxis("Vertical");
         Vector3 playerMovement = new Vector3(hor, 0f, ver) * _speed * Time.deltaTime;
         transform.Translate(playerMovement, Space.Self);
-       
+
     }
 
     public void SetDamageValue(int damageModifier, string itemName)
