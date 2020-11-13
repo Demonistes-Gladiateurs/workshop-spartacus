@@ -8,10 +8,14 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private EnemyController _enemy1;
     [SerializeField] private HealthBarScript _healthBar;
     [SerializeField] private Slider _slider;
+  
 
     private int _maxHealth;
     private int _currentHealth;
 
+   [SerializeField] private XPManager _addXP;
+    private int _xp;
+   
     public int CurrentHealthGS
     {
         get
@@ -45,8 +49,11 @@ public class EnemyHealth : MonoBehaviour
     public void Update()
     {
         _healthBar.SetHealth(_currentHealth);
+        
+
         if (_currentHealth <= 0) //BoucleHealth
         {
+            _xp = _addXP.AddXPInt();
             _currentHealth = _maxHealth;
 
         }

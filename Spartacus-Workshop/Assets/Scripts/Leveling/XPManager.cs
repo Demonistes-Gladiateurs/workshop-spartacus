@@ -25,6 +25,12 @@ public class XPManager : MonoBehaviour
         _levelText.text = _level.ToString();
     }
 
+    public int AddXPInt()
+    {
+        AddXP(10);
+        return _currentXP;
+    }
+
     public void AddXP(int xp)
     {
         _currentXP += xp;
