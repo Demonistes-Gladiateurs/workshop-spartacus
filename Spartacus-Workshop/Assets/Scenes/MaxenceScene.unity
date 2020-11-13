@@ -1364,6 +1364,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7952274935901281225}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &345716315
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345716306}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &379012474
 GameObject:
   m_ObjectHideFlags: 0
@@ -6249,7 +6262,7 @@ BoxCollider:
   m_GameObject: {fileID: 1758259496}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -8082,7 +8095,7 @@ PrefabInstance:
     - target: {fileID: 2924117961316605234, guid: c080f38957de77845847332b37d7f1bf,
         type: 3}
       propertyPath: _armor._baseValue
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2924117961316605234, guid: c080f38957de77845847332b37d7f1bf,
         type: 3}
@@ -8151,13 +8164,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7952274935558729105, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb,
         type: 3}
+      propertyPath: _playerList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952274935558729105, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7952274935558729105, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb,
         type: 3}
       propertyPath: _damage._baseValue
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7952274935558729105, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb,
         type: 3}
@@ -8169,6 +8187,26 @@ PrefabInstance:
       propertyPath: _lookRadius
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7952274935558729105, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb,
+        type: 3}
+      propertyPath: _healthPlayer1
+      value: 
+      objectReference: {fileID: 1484257262}
+    - target: {fileID: 7952274935558729105, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb,
+        type: 3}
+      propertyPath: _healthPlayer2
+      value: 
+      objectReference: {fileID: 1655710930}
+    - target: {fileID: 7952274935558729105, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb,
+        type: 3}
+      propertyPath: _playerList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1484257263}
+    - target: {fileID: 7952274935558729105, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb,
+        type: 3}
+      propertyPath: _playerList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1655710931}
     - target: {fileID: 7952274935558729115, guid: 91ec4ff855c0f324eb39a6a4e27b7fdb,
         type: 3}
       propertyPath: m_Name

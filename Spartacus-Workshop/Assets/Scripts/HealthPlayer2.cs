@@ -24,6 +24,17 @@ public class HealthPlayer2 : MonoBehaviour
         }
     }
 
+    public void SetCurrentHealth(int result)
+    {
+        Debug.Log(result);
+        _currentHealth = result;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return _currentHealth;
+    }
+
     private void Start()
     {
         _maxHealth = _character2.GetMaxHealth();
@@ -33,6 +44,7 @@ public class HealthPlayer2 : MonoBehaviour
 
     private void Update()
     {
+        _healthBar.SetHealth(_currentHealth);
         if (Input.GetKeyDown(KeyCode.Space)) //Test health bar
         {
             _character2.TakeDamage(_character2._damage.GetValue(), _character2._weaponBoostName);
