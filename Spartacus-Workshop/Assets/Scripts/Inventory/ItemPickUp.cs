@@ -15,7 +15,7 @@ public class ItemPickUp : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        lim = item.Length - 1;        
+        lim = item.Length;        
         if (other.gameObject.tag == "Player")
         {
             if (other.gameObject.name == "Player1")
@@ -27,19 +27,21 @@ public class ItemPickUp : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.A))
             {
+                if(i >= lim)
+                {
+                    i = 0;
+                }
                 PickUp();
                 if (i < lim)
                 {
                     i++;
                 }
-                else i=0;
             }
         }
     }
 
     void PickUp()
     {
-        Debug.Log("pickup " + i);
         int damageModifier = item[i].GetDamageValue(item[i]);
         int armorModifier = item[i].GetArmorValue(item[i]);
         int lifeModifier = item[i].GetLifeValue(item[i]);
@@ -47,10 +49,9 @@ public class ItemPickUp : MonoBehaviour
         //Debug.Log("damage " + damageModifier);
         //Debug.Log("armor " + armorModifier);
         //Debug.Log("heal " + lifeModifier);
-        Debug.Log("pickup PREBUG " + i);
-        _characterController[i].SetDamageValue(damageModifier, item[i].name);
-        _characterController[i].SetArmorValue(armorModifier);
-        _characterController[i].SetLifeValue(lifeModifier);
+        _characterController[player].SetDamageValue(damageModifier, item[i].name);
+        _characterController[player].SetArmorValue(armorModifier);
+        _characterController[player].SetLifeValue(lifeModifier);
         //Destroy(gameObject);
     }
 

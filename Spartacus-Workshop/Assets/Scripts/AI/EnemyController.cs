@@ -5,14 +5,24 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float _lookRadius = 10f;
+    [SerializeField] private int _maxHealth = 400;
+    public int _currentHealth { get; private set; }
+    private int _baseDamageValue;
+    private int _baseArmorValue;
 
     private Transform _target;
     private NavMeshAgent _agent;
+
+    public Stat _damage;
+    public Stat _armor;
 
     private void Start()
     {
         _target = PlayerManager._instance.PlayerGS.transform;
         _agent = GetComponent<NavMeshAgent>();
+        _currentHealth = _maxHealth;
+        _baseDamageValue = _damage.GetValue();
+        _baseArmorValue = _armor.GetValue();
     }
 
     private void Update()
@@ -41,5 +51,15 @@ public class EnemyController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _lookRadius);
+    }
+
+    public int GetMaxHealth()
+    {
+        return _maxHealth;
+    }
+
+    public int GetArmor()
+    {
+        return _baseArmorValue;
     }
 }

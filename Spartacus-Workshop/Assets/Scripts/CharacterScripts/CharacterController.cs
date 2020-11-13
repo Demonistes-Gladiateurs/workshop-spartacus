@@ -8,6 +8,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _speedBoost;
     [SerializeField] public string _weaponBoostName;
+    [SerializeField] private EnemyHealth _enemyHealth;
+    [SerializeField] private EnemyController _enemy;
 
     [SerializeField] private int _maxHealth = 500;
     public int _currentHealth { get; private set; }
@@ -37,10 +39,12 @@ public class CharacterController : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _currentHealth = _maxHealth;
+        //_currentHealth = _maxHealth;
         _baseDamageValue = _damage.GetValue();
         _baseArmorValue = _armor.GetValue();
         _baseHealValue = _heal.GetValue();
+
+        _currentHealth = _enemyHealth.GetCurrentHealth();
     }
 
     void Update()
@@ -59,17 +63,20 @@ public class CharacterController : MonoBehaviour
 
     public void TakeDamage(int damage, string weaponName)
     {
-        if(_playerCamera.name == "Camera1" && _playerCamera.tag == "MainCamera")
+        /*if(_playerCamera.name == "Camera1" && _playerCamera.tag == "MainCamera")
         {
             _currentHealth = GetComponent<HealthPlayer1>().CurrentHealthGS;
         } else if (_playerCamera.name == "Camera2" && _playerCamera.tag == "MainCamera")
         {
             _currentHealth = GetComponent<HealthPlayer2>().CurrentHealthGS;
-        }
+        }*/
+
+        _currentHealth = _enemyHealth.GetCurrentHealth();
 
         if (weaponName != "Spear")
         {
-            damage -= _armor.GetValue();
+            //damage -= _armor.GetValue();
+            damage -= _enemy.GetArmor();
         }
         
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
@@ -83,7 +90,9 @@ public class CharacterController : MonoBehaviour
 
         int result = _currentHealth -= damage;
 
-        if (_playerCamera.name == "Camera1" && _playerCamera.tag == "MainCamera")
+        _enemyHealth.SetCurrentHealth(result);
+
+        /*if (_playerCamera.name == "Camera1" && _playerCamera.tag == "MainCamera")
         {
             GetComponent<HealthPlayer1>().CurrentHealthGS = result;
             Debug.Log(transform.name + " takes " + damage + " damages.");
