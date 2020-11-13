@@ -106,12 +106,6 @@ public class CharacterController : MonoBehaviour
 
     void PlayerMovement()
     {
-       /* float hAxis = Input.GetAxis("Horizontal");
-        float vAxis = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(hAxis, 0f, vAxis);
-        _rb.position += movement * _speed * Time.deltaTime;*/
-
         float hor = Input.GetAxis("Horizontal"); 
         float ver = Input.GetAxis("Vertical");
         Vector3 playerMovement = new Vector3(hor, 0f, ver) * _speed * Time.deltaTime;
