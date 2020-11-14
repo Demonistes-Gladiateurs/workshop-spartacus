@@ -10,6 +10,7 @@ public class ChoiceScript : MonoBehaviour
     [SerializeField] private GameObject _choice02;
     [SerializeField] private GameObject _armor01;
     [SerializeField] private GameObject _armor02;
+   
 
     [SerializeField] private int _choiceMode;
 
@@ -22,7 +23,9 @@ public class ChoiceScript : MonoBehaviour
 
     public void ChoiceOption1()
     {
-        _textBox.GetComponent<Text>().text = "armure 1";
+        _textBox.SetActive(false);
+        _choice01.SetActive(false);
+        _choice02.SetActive(false);
 
         _armor01.SetActive(true);
        
@@ -31,7 +34,9 @@ public class ChoiceScript : MonoBehaviour
 
     public void ChoiceOption2()
     {
-        _textBox.GetComponent<Text>().text = "armure 2";
+        _textBox.SetActive(false);
+        _choice01.SetActive(false);
+        _choice02.SetActive(false);
 
         _armor02.SetActive(true);
 
