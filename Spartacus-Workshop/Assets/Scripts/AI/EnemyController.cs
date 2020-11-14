@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
     private int _result;
     private int _player1Health;
     private int _player2Health;
+    private float _timer;
+    private float _maxTimer = 1.0f;
 
     private int i;
 
@@ -63,32 +65,37 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _lookRadius);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        _player1Health = _healthPlayer1.GetCurrentHealth();
-        _player2Health = _healthPlayer2.GetCurrentHealth();
-        Debug.Log(_player1Health);
-        if (other.gameObject.tag == "Player")
+        _timer -= Time.deltaTime;
+        if (_timer <= 0)
         {
-            _damageHit = _baseDamageValue;
-            if (other.gameObject.name == "Player1")
+            _player1Health = _healthPlayer1.GetCurrentHealth();
+            _player2Health = _healthPlayer2.GetCurrentHealth();
+            Debug.Log(_player1Health);
+            if (other.gameObject.tag == "Player")
             {
-                i = 0;
-                _damageHit -= _playerList[i].GetArmor();
-                _damageHit = Mathf.Clamp(_damageHit, 0, int.MaxValue);
-                _result = _player1Health -= _damageHit;
-                _player1Health -= _damageHit;
-                _healthPlayer1.SetCurrentHealth(_result);
+                _damageHit = _baseDamageValue;
+                if (other.gameObject.name == "Player1")
+                {
+                    i = 0;
+                    _damageHit -= _playerList[i].GetArmor();
+                    _damageHit = Mathf.Clamp(_damageHit, 0, int.MaxValue);
+                    _result = _player1Health -= _damageHit;
+                    _player1Health -= _damageHit;
+                    _healthPlayer1.SetCurrentHealth(_result);
+                }
+                else if (other.gameObject.name == "Player2")
+                {
+                    i = 1;
+                    _damageHit -= _playerList[i].GetArmor();
+                    _damageHit = Mathf.Clamp(_damageHit, 0, int.MaxValue);
+                    _result = _player2Health -= _damageHit;
+                    _player2Health -= _damageHit;
+                    _healthPlayer2.SetCurrentHealth(_result);
+                }
             }
-            else if (other.gameObject.name == "Player2")
-            {
-                i = 1;
-                _damageHit -= _playerList[i].GetArmor();
-                _damageHit = Mathf.Clamp(_damageHit, 0, int.MaxValue);
-                _result = _player2Health -= _damageHit;
-                _player2Health -= _damageHit;
-                _healthPlayer2.SetCurrentHealth(_result);
-            }
+            _timer = _maxTimer;
         }
     }
 
