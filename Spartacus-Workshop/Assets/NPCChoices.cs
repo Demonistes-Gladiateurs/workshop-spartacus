@@ -31,11 +31,23 @@ public class NPCChoices : MonoBehaviour
             _uiText.SetActive(true);
             _openAllowed = true;
         }
+
+        if (other.gameObject.name == "Player2")
+        {
+            _uiText.SetActive(true);
+            _openAllowed = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == "Player1")
+        {
+            _uiText.SetActive(false);
+            _openAllowed = false;
+        }
+
+        if (other.gameObject.name == "Player2")
         {
             _uiText.SetActive(false);
             _openAllowed = false;
