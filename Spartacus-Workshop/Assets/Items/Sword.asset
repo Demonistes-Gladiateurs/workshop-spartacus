@@ -16,8 +16,8 @@ MonoBehaviour:
   _itemDescription: New Description
   _icon: {fileID: 0}
   _damageModifier: 45
-  _armorModifier: 0
+  _armorModifier: 2000
   _lifeModifier: 0
   _type: 2
   _effect: 1
-  _element: 0
+  _element: 3

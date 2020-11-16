@@ -17,5 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 81376bb8d2ba89241bf49d82004fdfc4, type: 3}
   _damageModifier: 7
   _armorModifier: 1
-  _lifeModifier: 20
+  _lifeModifier: 200
   _type: 1
+  _effect: 0
+  _element: 0
