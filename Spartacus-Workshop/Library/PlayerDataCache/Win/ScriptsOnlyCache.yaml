@@ -90,51 +90,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11272}
     - Class: 114
-      Script: {instanceID: 11434}
+      Script: {instanceID: 11424}
     - Class: 114
       Script: {instanceID: 11436}
     - Class: 114
-      Script: {instanceID: 11474}
+      Script: {instanceID: 11438}
     - Class: 114
-      Script: {instanceID: 11784}
+      Script: {instanceID: 11476}
     - Class: 114
-      Script: {instanceID: 11874}
+      Script: {instanceID: 11786}
     - Class: 114
-      Script: {instanceID: 11902}
+      Script: {instanceID: 11876}
     - Class: 114
-      Script: {instanceID: 12078}
+      Script: {instanceID: 11904}
     - Class: 114
-      Script: {instanceID: 12274}
+      Script: {instanceID: 12080}
     - Class: 114
-      Script: {instanceID: 12296}
+      Script: {instanceID: 12276}
     - Class: 114
-      Script: {instanceID: 12502}
+      Script: {instanceID: 12298}
     - Class: 114
-      Script: {instanceID: 12516}
+      Script: {instanceID: 12504}
     - Class: 114
-      Script: {instanceID: 12616}
+      Script: {instanceID: 12518}
     - Class: 114
-      Script: {instanceID: 12758}
+      Script: {instanceID: 12532}
     - Class: 114
-      Script: {instanceID: 12770}
+      Script: {instanceID: 12620}
     - Class: 114
-      Script: {instanceID: 12928}
+      Script: {instanceID: 12762}
     - Class: 114
-      Script: {instanceID: 13116}
+      Script: {instanceID: 12774}
     - Class: 114
-      Script: {instanceID: 13128}
+      Script: {instanceID: 12932}
     - Class: 114
-      Script: {instanceID: 13142}
+      Script: {instanceID: 13120}
     - Class: 114
-      Script: {instanceID: 13158}
+      Script: {instanceID: 13132}
     - Class: 114
-      Script: {instanceID: 13170}
+      Script: {instanceID: 13146}
     - Class: 114
-      Script: {instanceID: 13992}
+      Script: {instanceID: 13162}
     - Class: 114
-      Script: {instanceID: 45688}
+      Script: {instanceID: 13192}
     - Class: 114
-      Script: {instanceID: 53532}
+      Script: {instanceID: 13780}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -193,67 +193,67 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11292}
     - Class: 114
-      Script: {instanceID: 11434}
+      Script: {instanceID: 11436}
     - Class: 114
-      Script: {instanceID: 11474}
+      Script: {instanceID: 11476}
     - Class: 114
-      Script: {instanceID: 11488}
+      Script: {instanceID: 11490}
     - Class: 114
-      Script: {instanceID: 11492}
+      Script: {instanceID: 11494}
     - Class: 114
-      Script: {instanceID: 11530}
+      Script: {instanceID: 11532}
     - Class: 114
-      Script: {instanceID: 11556}
+      Script: {instanceID: 11558}
     - Class: 114
-      Script: {instanceID: 11588}
+      Script: {instanceID: 11590}
     - Class: 114
-      Script: {instanceID: 11874}
+      Script: {instanceID: 11876}
     - Class: 114
-      Script: {instanceID: 11886}
+      Script: {instanceID: 11888}
     - Class: 114
-      Script: {instanceID: 11976}
+      Script: {instanceID: 11978}
     - Class: 114
-      Script: {instanceID: 12022}
+      Script: {instanceID: 12024}
     - Class: 114
-      Script: {instanceID: 12092}
+      Script: {instanceID: 12094}
     - Class: 114
-      Script: {instanceID: 12188}
+      Script: {instanceID: 12190}
     - Class: 114
-      Script: {instanceID: 12274}
-    - Class: 114
-      Script: {instanceID: 12296}
+      Script: {instanceID: 12276}
     - Class: 114
       Script: {instanceID: 12298}
     - Class: 114
       Script: {instanceID: 12300}
     - Class: 114
-      Script: {instanceID: 12306}
+      Script: {instanceID: 12302}
     - Class: 114
-      Script: {instanceID: 12348}
+      Script: {instanceID: 12308}
     - Class: 114
-      Script: {instanceID: 12502}
+      Script: {instanceID: 12350}
     - Class: 114
-      Script: {instanceID: 12592}
+      Script: {instanceID: 12504}
     - Class: 114
-      Script: {instanceID: 12648}
+      Script: {instanceID: 12596}
     - Class: 114
-      Script: {instanceID: 12706}
+      Script: {instanceID: 12652}
     - Class: 114
-      Script: {instanceID: 12770}
+      Script: {instanceID: 12710}
     - Class: 114
-      Script: {instanceID: 12802}
+      Script: {instanceID: 12774}
     - Class: 114
-      Script: {instanceID: 12818}
+      Script: {instanceID: 12806}
     - Class: 114
-      Script: {instanceID: 12856}
+      Script: {instanceID: 12822}
     - Class: 114
       Script: {instanceID: 12860}
     - Class: 114
-      Script: {instanceID: 13128}
+      Script: {instanceID: 12864}
     - Class: 114
-      Script: {instanceID: 13158}
+      Script: {instanceID: 13132}
     - Class: 114
-      Script: {instanceID: 13198}
+      Script: {instanceID: 13162}
+    - Class: 114
+      Script: {instanceID: 13202}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -339,6 +339,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainMenu
   - hash:
       serializedVersion: 2
       Hash: aeb62f729c52c814dec86c47dcac1471
@@ -671,6 +677,12 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 63f4b9a45b108b7ed1a66b2165ec3cce
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChangeResolution
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -851,6 +863,12 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SetFullScreen
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -861,24 +879,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SwitchPlayers
-  - hash:
-      serializedVersion: 2
-      Hash: 63f4b9a45b108b7ed1a66b2165ec3cce
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ChangeResolution
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SetFullScreen
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MainMenu
   platform: 5
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

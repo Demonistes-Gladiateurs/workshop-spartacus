@@ -615,7 +615,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Lysiane Miral\n\n\nOph\xE9lie David\n\nMarie Najean\n\n\nZo\xE9 Martinez\n\nFran\xE7ois
+  m_Text: "Lysiane Miral\n\n\nOph\xE9lie David\n\n\nMarie Najean\n\nZo\xE9 Martinez\n\nFran\xE7ois
     Jacques\n\nCyril Neveu\n\nJ\xE9r\xE9my Derive\n\nMaxence Rerart\n\n\n"
 --- !u!222 &394565133
 CanvasRenderer:
@@ -2265,8 +2265,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -118, y: -100.5}
-  m_SizeDelta: {x: 235, y: 476.7744}
+  m_AnchoredPosition: {x: -103.5, y: -131.6}
+  m_SizeDelta: {x: 263.91498, y: 538.9741}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100378788
 MonoBehaviour:
@@ -2300,9 +2300,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Chef de projet / GD / LD / Gestion\n\nCharacter Designer\n\nLevel Art
-    / Concept Art\n\nProps Art / 3D Artist\n\nProps Art / 3D Artist\n\nProg/ GD /
-    R\xE9daction\n\nProg/ GD / R\xE9daction\n\nProg/ GD / Sc\xE9nario\n\n\n"
+  m_Text: "Chef de projet / GD / LD / Gestion\n\nDA / Character Designer\n\nLevel
+    Art / Concept Art\n\nProps Art / 3D Artist\n\nProps Art / 3D Artist\n\nProg/
+    GD / R\xE9daction\n\nProg/ GD / R\xE9daction\n\nProg/ GD / Sc\xE9nario\n\n\n"
 --- !u!222 &1100378789
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2605,12 +2605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe2adbfdfd4ec5469421878cc7ea2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 3
-  _characterController: []
-  player: 0
-  i: 0
-  lim: 0
-  item: []
 --- !u!114 &1211073290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3844,12 +3838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe2adbfdfd4ec5469421878cc7ea2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 3
-  _characterController: []
-  player: 0
-  i: 0
-  lim: 0
-  item: []
 --- !u!1 &1914769779
 GameObject:
   m_ObjectHideFlags: 0
