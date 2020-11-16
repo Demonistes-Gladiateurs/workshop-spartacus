@@ -166,7 +166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 20455115}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9bb1e2b6bbace042acd8c5adb070690, type: 3}
+  m_Script: {fileID: 11500000, guid: e78ccc70b5750644b89f5fcc8ff6474d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeLoading: 18
@@ -616,7 +616,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Lysiane Miral\n\n\nOph\xE9lie David\n\n\nMarie Najean\n\nZo\xE9 Martinez\n\nFran\xE7ois
-    Jacques\n\nCyril Neveu\n\nJ\xE9r\xE9my Derive\n\nMaxence Rerart\n\n\n"
+    Jacques\n\nCyril Neveu\n\nJ\xE9r\xE9my Derive\n\nMaxence Rerat\n\n\n"
 --- !u!222 &394565133
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3556,7 +3556,7 @@ GameObject:
   - component: {fileID: 1782851817}
   - component: {fileID: 1782851816}
   m_Layer: 5
-  m_Name: Text
+  m_Name: MusicVolumeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
