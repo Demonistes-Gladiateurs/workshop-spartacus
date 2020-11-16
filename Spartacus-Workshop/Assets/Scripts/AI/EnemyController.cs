@@ -52,6 +52,18 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public float SpeedGS
+    {
+        get
+        {
+            return GetComponent<NavMeshAgent>().speed;
+        }
+        set
+        {
+            GetComponent<NavMeshAgent>().speed = value;
+        }
+    }
+
     void FaceTarget()
     {
         Vector3 direction = (_target.position - transform.position).normalized;
@@ -72,7 +84,6 @@ public class EnemyController : MonoBehaviour
         {
             _player1Health = _healthPlayer1.GetCurrentHealth();
             _player2Health = _healthPlayer2.GetCurrentHealth();
-            Debug.Log(_player1Health);
             if (other.gameObject.tag == "Player")
             {
                 _damageHit = _baseDamageValue;
@@ -107,5 +118,20 @@ public class EnemyController : MonoBehaviour
     public int GetArmor()
     {
         return _baseArmorValue;
+    }
+
+    public void SetArmor(int armor)
+    {
+        _baseArmorValue = armor;
+    }
+
+    public int GetDamage()
+    {
+        return _baseDamageValue;
+    }
+
+    public void SetDamage(int damage)
+    {
+        _baseDamageValue = damage;
     }
 }

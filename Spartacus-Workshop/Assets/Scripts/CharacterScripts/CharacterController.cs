@@ -11,6 +11,11 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private EnemyHealth _enemyHealth;
     [SerializeField] private EnemyController _enemy;
 
+    [SerializeField] private ContinuedDamage _bleeding;
+    [SerializeField] private FreezeEffect _freezing;
+    [SerializeField] private SlowEffect _slow;
+    [SerializeField] private ElecEffect _elect;
+
     [SerializeField] private int _maxHealth = 500;
     public int _currentHealthEnemy { get; private set; }
     public int _currentHealth;
@@ -19,6 +24,7 @@ public class CharacterController : MonoBehaviour
     private int _baseHealValue;
     private bool _actifPlayer = false;
     private bool _canHit = false;
+    private int _freezeCount;
 
     public Stat _damage;
     public Stat _armor;
@@ -29,7 +35,7 @@ public class CharacterController : MonoBehaviour
 
     //private bool _isOnTheGround = true;
 
-        public float SpeedGS
+    public float SpeedGS
     {
         get
         {
@@ -86,36 +92,49 @@ public class CharacterController : MonoBehaviour
             if (_actifPlayer)
             {
                 _currentHealthEnemy = _enemyHealth.GetCurrentHealth();
+                damage -= _enemy.GetArmor();
 
                 if (_element.GetElement() == "Fire")
                 {
-                    Debug.Log("THOUGH THE FIRE AND FLAMMES !!");
+                    _bleeding.Bleeding(_enemyHealth, 1);
+                    _bleeding.Bleeding(_enemyHealth, 2);
+                    _bleeding.Bleeding(_enemyHealth, 3);
                 }
                 else if (_element.GetElement() == "Ice")
                 {
-                    Debug.Log("TRAPPED UNDER ICE !!");
+                    _slow.SlowDown(_enemy);
+                    _freezeCount += 2;
+                    if (_freezeCount >= 3)
+                    {
+                        _freezing.Freeze(_enemy);
+                        _freezeCount = 0;
+                    }
                 }
                 else if (_element.GetElement() == "Thunder")
                 {
-                    Debug.Log("THUNDERSTRUCK !!");
+                    _elect.Elect(_enemy, 30, 10);
                 }
 
                 if (_element.GetEffect() == "Sharp")
                 {
-                    Debug.Log("Sharp Dressed Man !!");
+                    _bleeding.Bleeding(_enemyHealth, 1);
+                    _bleeding.Bleeding(_enemyHealth, 2);
+                    _bleeding.Bleeding(_enemyHealth, 3);
+                    damage += _enemy.GetArmor();
                 }
                 else if (_element.GetEffect() == "Blunt")
                 {
-                    Debug.Log("Blunt !!");
+                    _freezeCount++;
+                    if(_freezeCount >= 3)
+                    {
+                        _freezing.Freeze(_enemy);
+                        _freezeCount = 0;
+                    }
+                    damage += _enemy.GetArmor();
                 }
                 else if (_element.GetEffect() == "Piercing")
                 {
-                    Debug.Log("Piercing !!");
-                }
-
-                if (weaponName != "Spear")
-                {
-                    damage -= _enemy.GetArmor();
+                    //Debug.Log("Piercing !!");
                 }
 
                 damage = Mathf.Clamp(damage, 0, int.MaxValue);
@@ -171,7 +190,6 @@ public class CharacterController : MonoBehaviour
         int valueToRemove = _armor.GetValue() - _baseArmorValue;
         _armor.RemoveModifier(armorModifier);
         _armor.AddModifier(armorModifier);
-        //Debug.Log(_armor.GetValue());
     }
 
     public void SetLifeValue(int lifeModifier)
@@ -184,9 +202,6 @@ public class CharacterController : MonoBehaviour
         {
             _currentHealthEnemy = _maxHealth;
         }
-
-        //Debug.Log(_heal.GetValue());
-        //Debug.Log(_currentHealthEnemy);
         _heal.RemoveModifier(lifeModifier);
     }
 

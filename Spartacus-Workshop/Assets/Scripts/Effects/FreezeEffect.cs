@@ -1,25 +1,22 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FreezeEffect : MonoBehaviour
 {
-    [SerializeField] private float _freezeDelay = 5f;
-
-    private void OnCollisionEnter(Collision collision)
+    public void Freeze(EnemyController enemy)
     {
-        
+        enemy.GetComponent<EnemyController>().enabled = false;
+        enemy.GetComponent<EnemyController>().SpeedGS = 0;
+        Debug.Log("Freeze");
+        StartCoroutine(WaitForSeconds(enemy));
     }
 
-    IEnumerator Freeze(GameObject Go)
+    IEnumerator WaitForSeconds(EnemyController enemy)
     {
-        if(Go.gameObject.tag == "Player 1 || Player 2")
-        {
-            Go.GetComponent<CharacterController>().enabled = false;
-            Debug.Log("CharacterController desactivé");
-            yield return new WaitForSeconds(_freezeDelay);
-            Go.GetComponent<CharacterController>().enabled = true;
-            Debug.Log("CharacterController activé");
-        }
+        yield return new WaitForSecondsRealtime(2);
+        enemy.GetComponent<EnemyController>().enabled = true;
+        enemy.GetComponent<EnemyController>().SpeedGS = 2;
+        Debug.Log("CharacterController activé");
     }
-}*/
+}

@@ -2,32 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*public class ContinuedDamage : MonoBehaviour
+public class ContinuedDamage : MonoBehaviour
+
 {
-    private float _health;
-    private bool _canTakeDamage = true;
+    [SerializeField] private int _continiousDamages;
+    private int _health;
 
-    void Start()
+    public void Bleeding(EnemyHealth enemyHealth, int time)
     {
-        _health = GetComponent<Health>().CurrentHealthGS;
-        _health = 100f;
+        _health = enemyHealth.GetCurrentHealth();
+        StartCoroutine(WaitForSeconds(enemyHealth, time));
     }
 
-    private void OnCollisionEnter(Collision collision)
+    IEnumerator WaitForSeconds(EnemyHealth enemyHealth, int time)
     {
-        if()
-        {
-            if (_canTakeDamage)
-            {
-                StartCoroutine(WaitForSeconds());
-                _health = (_health - 1);
-            }
-        }
+        yield return new WaitForSecondsRealtime(time);
+        _health -= _continiousDamages;
+        enemyHealth.SetCurrentHealth(_health);
+        Debug.Log(_health + " SANG");
     }
-    IEnumerator WaitForSeconds()
-    {
-        _canTakeDamage = false;
-        yield return new WaitForSecondsRealtime(3);
-        _canTakeDamage = true;
-    }
-}*/
+}

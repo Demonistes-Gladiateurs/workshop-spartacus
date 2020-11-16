@@ -1,28 +1,29 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SlowEffect : MonoBehaviour
 {
-    [SerializeField] private float _slowValue = 3f;
-    [SerializeField] private float _slowDelay = 5f;
+    private float _slowValue = 1f;
+    [SerializeField] private float _slowDelay;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
-    IEnumerator Slow(GameObject Go)
+    public void SlowDown(EnemyController enemy)
     {
         float val;
-        if(Go.gameObject.tag == "Player 1 || Player 2")
+        val = enemy.GetComponent<EnemyController>().SpeedGS;
+        Debug.Log(val);
+        if (val >= 2)
         {
-            val = Go.GetComponent<CharacterController>().SpeedGS;
-            Go.GetComponent<CharacterController>().SpeedGS -= _slowValue;
-            Debug.Log("Slow activated");
-            yield return new WaitForSeconds(_slowDelay);
-            Debug.Log("Slow desactivated");
-            Go.GetComponent<CharacterController>().SpeedGS = val;
+            enemy.GetComponent<EnemyController>().SpeedGS -= _slowValue;
         }
+        //Debug.Log("Slow activated " + enemy.GetComponent<EnemyController>().SpeedGS);
+        StartCoroutine(Slow(enemy, 2));
     }
-}*/
+
+    IEnumerator Slow(EnemyController enemy, float val)
+    {
+        yield return new WaitForSeconds(_slowDelay);
+        //Debug.Log("Slow desactivated");
+        enemy.GetComponent<EnemyController>().SpeedGS = val;
+    }
+}
