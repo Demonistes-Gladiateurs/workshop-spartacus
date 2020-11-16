@@ -8,6 +8,9 @@ public class ElecEffect : MonoBehaviour
     private int _damage;
     [SerializeField] private float _timeElect;
 
+    private int damageCheat = 30;
+    private int armorCheat = 10;
+
     public void Elect(EnemyController enemy, int damage, int armor)
     {
         _armor = enemy.GetArmor();
@@ -18,7 +21,7 @@ public class ElecEffect : MonoBehaviour
         int _weakDamage = _damage - damage;
         enemy.SetDamage(_weakDamage);
 
-        StartCoroutine(WaitForSeconds(enemy, _damage, _armor));
+        StartCoroutine(WaitForSeconds(enemy, damageCheat, armorCheat));
     }
 
     IEnumerator WaitForSeconds(EnemyController enemy, int damage, int armor)
