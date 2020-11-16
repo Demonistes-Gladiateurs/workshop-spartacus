@@ -14,7 +14,7 @@ public class Item : ScriptableObject
 
     //[SerializeField] private int _price = 0;
 
-    [SerializeField] private enum Type { Default, Consumable, Weapon, Ammunition }
+    [SerializeField] private enum Type { Default, Consumable, Weapon, Armor, Element }
     [SerializeField] private enum Effect { Default, Sharp, Blunt, Piercing }
     [SerializeField] private enum Element { Default, Fire, Ice, Thunder }
 
@@ -28,6 +28,21 @@ public class Item : ScriptableObject
         {
             return _icon;
         }
+    }
+
+    public string GetTypeValue(Item item)
+    {
+        return _type.ToString();
+    }
+
+    public string GetElementValue(Item item)
+    {
+        return _element.ToString();
+    }
+
+    public string GetEffectValue(Item item)
+    {
+        return _effect.ToString();
     }
 
     public int GetDamageValue(Item item)

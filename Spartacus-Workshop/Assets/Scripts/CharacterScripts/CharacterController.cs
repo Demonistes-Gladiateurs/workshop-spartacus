@@ -23,6 +23,7 @@ public class CharacterController : MonoBehaviour
     public Stat _damage;
     public Stat _armor;
     public Stat _heal;
+    public Stat _element;
 
     private Rigidbody _rb;
 
@@ -86,6 +87,32 @@ public class CharacterController : MonoBehaviour
             {
                 _currentHealthEnemy = _enemyHealth.GetCurrentHealth();
 
+                if (_element.GetElement() == "Fire")
+                {
+                    Debug.Log("THOUGH THE FIRE AND FLAMMES !!");
+                }
+                else if (_element.GetElement() == "Ice")
+                {
+                    Debug.Log("TRAPPED UNDER ICE !!");
+                }
+                else if (_element.GetElement() == "Thunder")
+                {
+                    Debug.Log("THUNDERSTRUCK !!");
+                }
+
+                if (_element.GetEffect() == "Sharp")
+                {
+                    Debug.Log("Sharp Dressed Man !!");
+                }
+                else if (_element.GetEffect() == "Blunt")
+                {
+                    Debug.Log("Blunt !!");
+                }
+                else if (_element.GetEffect() == "Piercing")
+                {
+                    Debug.Log("Piercing !!");
+                }
+
                 if (weaponName != "Spear")
                 {
                     damage -= _enemy.GetArmor();
@@ -127,6 +154,16 @@ public class CharacterController : MonoBehaviour
         {
             _damage.AddModifier(damageModifier);
         }
+    }
+
+    public void SetElementValue(string elementModifier)
+    {
+        _element.SetElement(elementModifier);
+    }
+
+    public void SetEffectValue(string effectModifier)
+    {
+        _element.SetEffect(effectModifier);
     }
 
     public void SetArmorValue(int armorModifier)

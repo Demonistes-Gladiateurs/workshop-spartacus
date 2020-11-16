@@ -18,6 +18,6 @@ MonoBehaviour:
   _damageModifier: 2
   _armorModifier: 10
   _lifeModifier: 0
-  _type: 2
+  _type: 3
   _effect: 0
   _element: 0

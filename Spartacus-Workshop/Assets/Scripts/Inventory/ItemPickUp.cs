@@ -42,16 +42,39 @@ public class ItemPickUp : MonoBehaviour
 
     void PickUp()
     {
-        int damageModifier = item[i].GetDamageValue(item[i]);
-        int armorModifier = item[i].GetArmorValue(item[i]);
-        int lifeModifier = item[i].GetLifeValue(item[i]);
-        Debug.Log("Picking up " + item[i].name + ", gdt = " + damageModifier);
-        //Debug.Log("damage " + damageModifier);
-        //Debug.Log("armor " + armorModifier);
-        //Debug.Log("heal " + lifeModifier);
-        _characterController[player].SetDamageValue(damageModifier, item[i].name);
-        _characterController[player].SetArmorValue(armorModifier);
-        _characterController[player].SetLifeValue(lifeModifier);
+        string typeOfItem = item[i].GetTypeValue(item[i]);
+
+        if(typeOfItem == "Consumable")
+        {
+            int lifeModifier = item[i].GetLifeValue(item[i]);
+            _characterController[player].SetLifeValue(lifeModifier);
+
+            Debug.Log("Soin de: " + lifeModifier);
+
+        } else if (typeOfItem == "Weapon")
+        {
+            string effectModifier = item[i].GetEffectValue(item[i]);
+            int damageModifier = item[i].GetDamageValue(item[i]);
+
+            _characterController[player].SetEffectValue(effectModifier);
+            _characterController[player].SetDamageValue(damageModifier, item[i].name);
+
+            Debug.Log(item[i].name + " + " + damageModifier + " dgt de type " + effectModifier);
+
+        } else if (typeOfItem == "Armor")
+        {
+            int armorModifier = item[i].GetArmorValue(item[i]);
+            _characterController[player].SetArmorValue(armorModifier);
+
+            Debug.Log("Défense de: " + armorModifier);
+
+        } else if (typeOfItem == "Element")
+        {
+            string elementModifier = item[i].GetElementValue(item[i]);
+            _characterController[player].SetElementValue(elementModifier);
+
+            Debug.Log("Prend l'élément: " + elementModifier);
+        }
         //Destroy(gameObject);
     }
 
