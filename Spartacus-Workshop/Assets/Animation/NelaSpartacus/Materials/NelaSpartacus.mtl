@@ -1,0 +1,62 @@
+# Exported from Fuse 1.3.0
+
+newmtl Shoes
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd NelaSpartacus_Shoes_diffuse.png
+map_Ks NelaSpartacus_Shoes_specular.png
+bump NelaSpartacus_Shoes_normal.png
+map_Ns NelaSpartacus_Shoes_gloss.png
+
+newmtl Top
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd NelaSpartacus_Top_diffuse.png
+map_Ks NelaSpartacus_Top_specular.png
+bump NelaSpartacus_Top_normal.png
+map_Ns NelaSpartacus_Top_gloss.png
+
+newmtl Body
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd NelaSpartacus_Body_diffuse.png
+map_Ks NelaSpartacus_Body_specular.png
+bump NelaSpartacus_Body_normal.png
+map_Ns NelaSpartacus_Body_gloss.png
+
+newmtl Bottom
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd NelaSpartacus_Bottom_diffuse.png
+map_Ks NelaSpartacus_Bottom_specular.png
+bump NelaSpartacus_Bottom_normal.png
+map_Ns NelaSpartacus_Bottom_gloss.png
+
+newmtl Hair
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+map_Kd NelaSpartacus_Hair_diffuse.png
+map_Ks NelaSpartacus_Hair_specular.png
+bump NelaSpartacus_Hair_normal.png
+map_Ns NelaSpartacus_Hair_gloss.png
+
