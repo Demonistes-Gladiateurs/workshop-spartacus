@@ -6,13 +6,10 @@ public class ItemPickUp : MonoBehaviour
 {
     [SerializeField] private float _radius = 3f;
     [SerializeField] private CharacterController[] _characterController;
-    [SerializeField] private HealthPlayer1 _player1;
-    [SerializeField] private HealthPlayer2 _player2;
 
     private int player = 0;
     private int i = 0;
     private int lim = 0;
-    private int maxHealth;
 
     public Item[] item;
 
@@ -24,10 +21,8 @@ public class ItemPickUp : MonoBehaviour
             if (other.gameObject.name == "Player1")
             {
                 player = 0;
-                maxHealth = _characterController[0].GetMaxHealth();
             } else if (other.gameObject.name == "Player2"){
                 player = 1;
-                maxHealth = _characterController[1].GetMaxHealth();
             }
 
             if (Input.GetKeyDown(KeyCode.A))
@@ -53,26 +48,6 @@ public class ItemPickUp : MonoBehaviour
         {
             int lifeModifier = item[i].GetLifeValue(item[i]);
             _characterController[player].SetLifeValue(lifeModifier);
-
-            if(player == 0)
-            {
-                int actualHealth = _player1.GetCurrentHealth();
-                int Heal = actualHealth + lifeModifier;
-                if(Heal > maxHealth)
-                {
-                    Heal = maxHealth;
-                }
-                _player1.SetCurrentHealth(Heal);
-            } else if (player == 1)
-            {
-                int actualHealth = _player2.GetCurrentHealth();
-                int Heal = actualHealth + lifeModifier;
-                if (Heal > maxHealth)
-                {
-                    Heal = maxHealth;
-                }
-                _player2.SetCurrentHealth(Heal);
-            }
 
             Debug.Log("Soin de: " + lifeModifier);
 
