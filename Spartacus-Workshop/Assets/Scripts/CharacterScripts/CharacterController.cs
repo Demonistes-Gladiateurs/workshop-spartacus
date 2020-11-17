@@ -194,7 +194,7 @@ public class CharacterController : MonoBehaviour
 
     public void SetLifeValue(int lifeModifier)
     {
-        int valueToRemove = _heal.GetValue() - _baseHealValue;
+        /*int valueToRemove = _heal.GetValue() - _baseHealValue;
         _heal.AddModifier(lifeModifier);
         _currentHealthEnemy += _heal.GetValue();
 
@@ -202,7 +202,7 @@ public class CharacterController : MonoBehaviour
         {
             _currentHealthEnemy = _maxHealth;
         }
-        _heal.RemoveModifier(lifeModifier);
+        _heal.RemoveModifier(lifeModifier);*/
     }
 
     public int GetMaxHealth()
