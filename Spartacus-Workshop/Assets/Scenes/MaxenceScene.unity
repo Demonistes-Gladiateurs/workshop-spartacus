@@ -3391,6 +3391,8 @@ MonoBehaviour:
   _characterController:
   - {fileID: 1484257263}
   - {fileID: 1655710931}
+  _player1: {fileID: 0}
+  _player2: {fileID: 0}
   item:
   - {fileID: 11400000, guid: 3aa28b85497b0294d89dfd60f334917c, type: 2}
   - {fileID: 11400000, guid: 59331d2a4105b2d42b121b2b68b26109, type: 2}
@@ -5631,6 +5633,8 @@ MonoBehaviour:
   _characterController:
   - {fileID: 1484257263}
   - {fileID: 1655710931}
+  _player1: {fileID: 1484257262}
+  _player2: {fileID: 1655710930}
   item:
   - {fileID: 11400000, guid: da2792e9f79ac2d4cb57ec49e90b0a40, type: 2}
   - {fileID: 11400000, guid: 3c5b91efc8fc3e0499657c239bdbc08b, type: 2}
@@ -6693,6 +6697,8 @@ MonoBehaviour:
   _characterController:
   - {fileID: 1484257263}
   - {fileID: 1655710931}
+  _player1: {fileID: 0}
+  _player2: {fileID: 0}
   item:
   - {fileID: 11400000, guid: 3e2637ccf0ddc394fae19816b724e208, type: 2}
   - {fileID: 11400000, guid: f2bca3658eefec34d8ffbe3739ed26e4, type: 2}
@@ -8391,6 +8397,8 @@ MonoBehaviour:
   _characterController:
   - {fileID: 1484257263}
   - {fileID: 1655710931}
+  _player1: {fileID: 0}
+  _player2: {fileID: 0}
   item:
   - {fileID: 11400000, guid: 933973c5b0f95ac42a65d67f5a28d637, type: 2}
   - {fileID: 11400000, guid: d99a38a70e452164bbefcb8cdc017523, type: 2}
