@@ -4517,6 +4517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73030f76eba43341b829cbb338ba425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slider: {fileID: 0}
 --- !u!114 &192921233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18467,6 +18468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73030f76eba43341b829cbb338ba425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slider: {fileID: 0}
 --- !u!114 &982847892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24072,6 +24074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6a719c35b388a478d5b6bbe846b865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slider: {fileID: 0}
 --- !u!114 &1247296433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30639,7 +30642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1554614405
 GameObject:
