@@ -27,7 +27,7 @@ public class HealthPlayer1 : MonoBehaviour
     public void SetCurrentHealth(int result)
     {
         _currentHealth = result;
-        Debug.Log(_currentHealth);
+        //Debug.Log(_currentHealth);
     }
 
     public int GetCurrentHealth()

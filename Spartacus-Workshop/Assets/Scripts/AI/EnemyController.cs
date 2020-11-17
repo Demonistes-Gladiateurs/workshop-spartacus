@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private CharacterController[] _playerList;
     [SerializeField] private HealthPlayer1 _healthPlayer1;
     [SerializeField] private HealthPlayer2 _healthPlayer2;
+    [SerializeField] private float _animationTime;
 
     public int _currentHealth { get; private set; }
     private int _baseDamageValue;
@@ -19,6 +20,7 @@ public class EnemyController : MonoBehaviour
     private int _player2Health;
     private float _timer;
     private float _maxTimer = 1.0f;
+    private bool _hiting;
 
     private int i;
 
@@ -35,6 +37,7 @@ public class EnemyController : MonoBehaviour
         _currentHealth = _maxHealth;
         _baseDamageValue = _damage.GetValue();
         _baseArmorValue = _armor.GetValue();
+        _hiting = false;
     }
 
     private void Update()
@@ -86,10 +89,13 @@ public class EnemyController : MonoBehaviour
             _player2Health = _healthPlayer2.GetCurrentHealth();
             if (other.gameObject.tag == "Player")
             {
+                //GetComponent<NavMeshAgent>().speed = 0;
+                //StartCoroutine(WaitForSeconds(_animationTime));
                 _damageHit = _baseDamageValue;
                 if (other.gameObject.name == "Player1")
                 {
                     i = 0;
+                    Debug.Log(_playerList[i].GetArmor());
                     _damageHit -= _playerList[i].GetArmor();
                     _damageHit = Mathf.Clamp(_damageHit, 0, int.MaxValue);
                     _result = _player1Health -= _damageHit;
@@ -108,6 +114,13 @@ public class EnemyController : MonoBehaviour
             }
             _timer = _maxTimer;
         }
+    }
+
+    IEnumerator WaitForSeconds(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        GetComponent<NavMeshAgent>().speed = 3;
+        _hiting = false;
     }
 
     public int GetMaxHealth()

@@ -8,6 +8,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _speedBoost;
     [SerializeField] public string _weaponBoostName;
+    [SerializeField] private float _animationTime;
     [SerializeField] private EnemyHealth _enemyHealth;
     [SerializeField] private EnemyController _enemy;
 
@@ -24,6 +25,7 @@ public class CharacterController : MonoBehaviour
     private int _baseHealValue;
     private bool _actifPlayer = false;
     private bool _canHit = false;
+    private bool _hiting = false;
     private int _freezeCount;
 
     public Stat _damage;
@@ -53,6 +55,7 @@ public class CharacterController : MonoBehaviour
         _baseDamageValue = _damage.GetValue();
         _baseArmorValue = _armor.GetValue();
         _baseHealValue = _heal.GetValue();
+        _hiting = false;
 
         _currentHealthEnemy = _enemyHealth.GetCurrentHealth();
     }
@@ -78,8 +81,11 @@ public class CharacterController : MonoBehaviour
 
     public void TakeDamage(int damage, string weaponName)
     {
-        if (_canHit)
+        if (_canHit && !_hiting)
         {
+            _speed = 0;
+            _hiting = true;
+            StartCoroutine(WaitForSeconds(_animationTime));
             if (_playerCamera.name == "Camera1" && _playerCamera.tag == "MainCamera")
             {
                 _actifPlayer = true;
@@ -164,9 +170,20 @@ public class CharacterController : MonoBehaviour
        
     }
 
+    IEnumerator WaitForSeconds(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        _speed = 20;
+        _hiting = false;
+    }
+
     public void SetDamageValue(int damageModifier, string itemName)
     {
-        int valueToRemove = _damage.GetValue() - _baseDamageValue;
+        int valueToRemove = 0;
+        if(_damage.GetValue() != _baseDamageValue)
+        {
+            valueToRemove = _damage.GetValue() - _baseDamageValue;
+        }
         _damage.RemoveModifier(valueToRemove);
         _damage.AddModifier(damageModifier);
         if(itemName == _weaponBoostName)
@@ -187,9 +204,15 @@ public class CharacterController : MonoBehaviour
 
     public void SetArmorValue(int armorModifier)
     {
-        int valueToRemove = _armor.GetValue() - _baseArmorValue;
-        _armor.RemoveModifier(armorModifier);
+        Debug.Log("Armure de base: " + _armor.GetValue());
+        int valueToRemove = 0;
+        if (_armor.GetValue() != _baseArmorValue)
+        {
+            valueToRemove = _armor.GetValue() - _baseArmorValue;
+        }
+        _armor.RemoveModifier(valueToRemove);
         _armor.AddModifier(armorModifier);
+        Debug.Log("Armure new: " + _armor.GetValue());
     }
 
     public void SetLifeValue(int lifeModifier)
@@ -217,6 +240,6 @@ public class CharacterController : MonoBehaviour
 
     public int GetArmor()
     {
-        return _baseArmorValue;
+        return _armor.GetValue();
     }
 }
